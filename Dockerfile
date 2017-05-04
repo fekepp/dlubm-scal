@@ -78,9 +78,12 @@ RUN	cd /root/ && \
 	\
 	mv build/install/dlubm /usr/share/ && \
 	mkdir /var/lib/dlubm && \
+	mkdir /var/log/dlubm && \
+	chmod o+w /var/log/dlubm && \
+	ln -s /var/log/dlubm /var/lib/dlubm/dlubm && \
 	curl --silent --show-error --location "http://swat.cse.lehigh.edu/onto/univ-bench.owl" -o "/var/lib/dlubm/univ-bench" && \
 	sed -i '/univ-bench\.owl/d' /var/lib/dlubm/univ-bench && \
-	echo "DLUBM_DLUBM_VERSION=${DLUBM_VERSION}" >> /var/lib/dlubm/dlubm && \
+	echo "DLUBM_DLUBM_VERSION=${DLUBM_VERSION}" >> /var/log/dlubm/dlubm && \
 	\
 	\
 	cd /root/ && \
@@ -141,6 +144,9 @@ RUN	cd /root/ && \
 	\
 	\
 	mv build/install/scal /usr/share/ && \
+	mkdir /var/log/scal && \
+	chmod o+w /var/log/scal && \
+	ln -s /var/log/scal /var/lib/dlubm/scal && \
 	\
 	\
 	cd /root/ && \

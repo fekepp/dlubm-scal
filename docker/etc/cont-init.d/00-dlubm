@@ -2,8 +2,8 @@
 
 DLUBM_BINARY="/usr/share/dlubm/bin/dlubm"
 DLUBM_OUTPUT_DIRECTORY="/var/lib/dlubm/"
-DLUBM_LOG_FILE="${DLUBM_OUTPUT_DIRECTORY}/dlubm.log"
-DLUBM_GENERATOR_LOG_FILE="${DLUBM_OUTPUT_DIRECTORY}/lubm.log"
+DLUBM_LOG_FILE="/var/log/dlubm/dlubm"
+DLUBM_GENERATOR_LOG_FILE="/var/log/dlubm/lubm"
 DLUBM_THREADS=1
 DLUBM_FORMAT="TURTLE"
 
