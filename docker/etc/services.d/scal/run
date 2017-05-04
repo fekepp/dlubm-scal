@@ -1,0 +1,3 @@
+#!/usr/bin/execlineb -P
+
+/usr/share/scal/bin/scal-server -p 80 -s /var/lib/dlubm -t /tmp

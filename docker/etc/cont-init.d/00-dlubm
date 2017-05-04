@@ -1,0 +1,407 @@
+#!/usr/bin/with-contenv sh
+
+DLUBM_BINARY="/usr/share/dlubm/bin/dlubm"
+DLUBM_OUTPUT_DIRECTORY="/var/lib/dlubm/"
+DLUBM_LOG_FILE="${DLUBM_OUTPUT_DIRECTORY}/dlubm.log"
+DLUBM_GENERATOR_LOG_FILE="${DLUBM_OUTPUT_DIRECTORY}/lubm.log"
+DLUBM_THREADS=1
+DLUBM_FORMAT="TURTLE"
+
+
+
+
+#
+# Generate data
+#
+
+if [ ${DLUBM_GRANULARITY} == "GLOBAL" ]
+then
+	
+	if [ ${DLUBM_UNIVERSITY_AMOUNT} == 1 ]
+	then
+		echo "Generating data for university depth"
+		
+		${DLUBM_BINARY} \
+			--format ${DLUBM_FORMAT} \
+			--index ${DLUBM_HOST_UNIVERSITY_OFFSET} \
+			--log "${DLUBM_GENERATOR_LOG_FILE}" \
+			--output "${DLUBM_OUTPUT_DIRECTORY}" \
+			--onto "${DLUBM_ONTOLOGY}" \
+			--threads ${DLUBM_THREADS} \
+			--seed ${DLUBM_SEED} \
+			--univ ${DLUBM_HOST_UNIVERSITY_AMOUNT} \
+			--universitiesGlobal ${DLUBM_UNIVERSITY_AMOUNT} \
+			--universityTemplate "${DLUBM_UNIVERSITY_TEMPLATE}" \
+			--universityLimit "${DLUBM_UNIVERSITY_LIMIT}" \
+			--departmentTemplate "${DLUBM_DEPARTMENT_TEMPLATE}" \
+			--departmentLimit "${DLUBM_DEPARTMENT_LIMIT}" \
+			--consolidate "Maximal" \
+			--depth "UNIVERSITY"
+	
+	else
+		
+		
+		echo "Generating data for global depth"
+		
+		${DLUBM_BINARY} \
+			--format ${DLUBM_FORMAT} \
+			--index ${DLUBM_HOST_UNIVERSITY_OFFSET} \
+			--log "${DLUBM_GENERATOR_LOG_FILE}" \
+			--output "${DLUBM_OUTPUT_DIRECTORY}" \
+			--onto "${DLUBM_ONTOLOGY}" \
+			--threads ${DLUBM_THREADS} \
+			--seed ${DLUBM_SEED} \
+			--univ ${DLUBM_HOST_UNIVERSITY_AMOUNT} \
+			--universitiesGlobal ${DLUBM_UNIVERSITY_AMOUNT} \
+			--universityTemplate "${DLUBM_UNIVERSITY_TEMPLATE}" \
+			--universityLimit "${DLUBM_UNIVERSITY_LIMIT}" \
+			--departmentTemplate "${DLUBM_DEPARTMENT_TEMPLATE}" \
+			--departmentLimit "${DLUBM_DEPARTMENT_LIMIT}" \
+			--consolidate "Maximal" \
+			--depth "GLOBAL"
+		
+		
+		echo "Generating data for university depth"
+		
+		${DLUBM_BINARY} \
+			--format ${DLUBM_FORMAT} \
+			--index ${DLUBM_HOST_UNIVERSITY_OFFSET} \
+			--log "${DLUBM_GENERATOR_LOG_FILE}" \
+			--output "${DLUBM_OUTPUT_DIRECTORY}" \
+			--onto "${DLUBM_ONTOLOGY}" \
+			--threads ${DLUBM_THREADS} \
+			--seed ${DLUBM_SEED} \
+			--univ ${DLUBM_HOST_UNIVERSITY_AMOUNT} \
+			--universitiesGlobal ${DLUBM_UNIVERSITY_AMOUNT} \
+			--universityTemplate "${DLUBM_UNIVERSITY_TEMPLATE}" \
+			--universityLimit "${DLUBM_UNIVERSITY_LIMIT}" \
+			--departmentTemplate "${DLUBM_DEPARTMENT_TEMPLATE}" \
+			--departmentLimit "${DLUBM_DEPARTMENT_LIMIT}" \
+			--consolidate "Partial" \
+			--depth "UNIVERSITY"
+		
+	fi
+		
+		
+	echo "Generating data for department depth"
+		
+	${DLUBM_BINARY} \
+		--format ${DLUBM_FORMAT} \
+		--index ${DLUBM_HOST_UNIVERSITY_OFFSET} \
+		--log "${DLUBM_GENERATOR_LOG_FILE}" \
+		--output "${DLUBM_OUTPUT_DIRECTORY}" \
+		--onto "${DLUBM_ONTOLOGY}" \
+		--threads ${DLUBM_THREADS} \
+		--seed ${DLUBM_SEED} \
+		--univ ${DLUBM_HOST_UNIVERSITY_AMOUNT} \
+		--universitiesGlobal ${DLUBM_UNIVERSITY_AMOUNT} \
+		--universityTemplate "${DLUBM_UNIVERSITY_TEMPLATE}" \
+		--universityLimit "${DLUBM_UNIVERSITY_LIMIT}" \
+		--departmentTemplate "${DLUBM_DEPARTMENT_TEMPLATE}" \
+		--departmentLimit "${DLUBM_DEPARTMENT_LIMIT}" \
+		--consolidate "None" \
+		--depth "DEPARTMENT"
+		
+elif [ ${DLUBM_GRANULARITY} == "UNIVERSITY" ]
+then
+	
+	if [ ${DLUBM_HOST_DEPTH} == "GLOBAL" ]
+	then
+		
+		echo "Generating data for global depth"
+		
+		${DLUBM_BINARY} \
+			--format ${DLUBM_FORMAT} \
+			--index ${DLUBM_HOST_UNIVERSITY_OFFSET} \
+			--log "${DLUBM_GENERATOR_LOG_FILE}" \
+			--output "${DLUBM_OUTPUT_DIRECTORY}" \
+			--onto "${DLUBM_ONTOLOGY}" \
+			--threads ${DLUBM_THREADS} \
+			--seed ${DLUBM_SEED} \
+			--univ ${DLUBM_HOST_UNIVERSITY_AMOUNT} \
+			--universitiesGlobal ${DLUBM_UNIVERSITY_AMOUNT} \
+			--universityTemplate "${DLUBM_UNIVERSITY_TEMPLATE}" \
+			--universityLimit "${DLUBM_UNIVERSITY_LIMIT}" \
+			--departmentTemplate "${DLUBM_DEPARTMENT_TEMPLATE}" \
+			--departmentLimit "${DLUBM_DEPARTMENT_LIMIT}" \
+			--consolidate "Maximal" \
+			--depth "GLOBAL"
+		
+	else
+		
+		if [ ${DLUBM_UNIVERSITY_AMOUNT} == 1 ]
+		then
+		
+			echo "Generating data for university depth"
+			
+			${DLUBM_BINARY} \
+				--format ${DLUBM_FORMAT} \
+				--index ${DLUBM_HOST_UNIVERSITY_OFFSET} \
+				--log "${DLUBM_GENERATOR_LOG_FILE}" \
+				--output "${DLUBM_OUTPUT_DIRECTORY}" \
+				--onto "${DLUBM_ONTOLOGY}" \
+				--threads ${DLUBM_THREADS} \
+				--seed ${DLUBM_SEED} \
+				--univ ${DLUBM_HOST_UNIVERSITY_AMOUNT} \
+				--universitiesGlobal ${DLUBM_UNIVERSITY_AMOUNT} \
+				--universityTemplate "${DLUBM_UNIVERSITY_TEMPLATE}" \
+				--universityLimit "${DLUBM_UNIVERSITY_LIMIT}" \
+				--departmentTemplate "${DLUBM_DEPARTMENT_TEMPLATE}" \
+				--departmentLimit "${DLUBM_DEPARTMENT_LIMIT}" \
+				--consolidate "Maximal" \
+				--depth "UNIVERSITY"
+		
+		else
+		
+			echo "Generating data for university depth"
+			
+			${DLUBM_BINARY} \
+				--format ${DLUBM_FORMAT} \
+				--index ${DLUBM_HOST_UNIVERSITY_OFFSET} \
+				--log "${DLUBM_GENERATOR_LOG_FILE}" \
+				--output "${DLUBM_OUTPUT_DIRECTORY}" \
+				--onto "${DLUBM_ONTOLOGY}" \
+				--threads ${DLUBM_THREADS} \
+				--seed ${DLUBM_SEED} \
+				--univ ${DLUBM_HOST_UNIVERSITY_AMOUNT} \
+				--universitiesGlobal ${DLUBM_UNIVERSITY_AMOUNT} \
+				--universityTemplate "${DLUBM_UNIVERSITY_TEMPLATE}" \
+				--universityLimit "${DLUBM_UNIVERSITY_LIMIT}" \
+				--departmentTemplate "${DLUBM_DEPARTMENT_TEMPLATE}" \
+				--departmentLimit "${DLUBM_DEPARTMENT_LIMIT}" \
+				--consolidate "Partial" \
+				--depth "UNIVERSITY"
+		
+		fi
+		
+		
+		echo "Generating data for department depth"
+			
+		${DLUBM_BINARY} \
+			--format ${DLUBM_FORMAT} \
+			--index ${DLUBM_HOST_UNIVERSITY_OFFSET} \
+			--log "${DLUBM_GENERATOR_LOG_FILE}" \
+			--output "${DLUBM_OUTPUT_DIRECTORY}" \
+			--onto "${DLUBM_ONTOLOGY}" \
+			--threads ${DLUBM_THREADS} \
+			--seed ${DLUBM_SEED} \
+			--univ ${DLUBM_HOST_UNIVERSITY_AMOUNT} \
+			--universitiesGlobal ${DLUBM_UNIVERSITY_AMOUNT} \
+			--universityTemplate "${DLUBM_UNIVERSITY_TEMPLATE}" \
+			--universityLimit "${DLUBM_UNIVERSITY_LIMIT}" \
+			--departmentTemplate "${DLUBM_DEPARTMENT_TEMPLATE}" \
+			--departmentLimit "${DLUBM_DEPARTMENT_LIMIT}" \
+			--consolidate "None" \
+			--depth "DEPARTMENT"
+		
+	fi
+	
+elif [ ${DLUBM_GRANULARITY} == "DEPARTMENT" ]
+then
+	
+	if [ ${DLUBM_HOST_DEPTH} == "GLOBAL" ]
+	then
+		
+		echo "Generating data for global depth"
+		
+		${DLUBM_BINARY} \
+			--format ${DLUBM_FORMAT} \
+			--index ${DLUBM_HOST_UNIVERSITY_OFFSET} \
+			--log "${DLUBM_GENERATOR_LOG_FILE}" \
+			--output "${DLUBM_OUTPUT_DIRECTORY}" \
+			--onto "${DLUBM_ONTOLOGY}" \
+			--threads ${DLUBM_THREADS} \
+			--seed ${DLUBM_SEED} \
+			--univ ${DLUBM_HOST_UNIVERSITY_AMOUNT} \
+			--universitiesGlobal ${DLUBM_UNIVERSITY_AMOUNT} \
+			--universityTemplate "${DLUBM_UNIVERSITY_TEMPLATE}" \
+			--universityLimit "${DLUBM_UNIVERSITY_LIMIT}" \
+			--departmentTemplate "${DLUBM_DEPARTMENT_TEMPLATE}" \
+			--departmentLimit "${DLUBM_DEPARTMENT_LIMIT}" \
+			--consolidate "Maximal" \
+			--depth "GLOBAL"
+		
+	elif [ ${DLUBM_HOST_DEPTH} == "UNIVERSITY" ]
+	then
+		
+		echo "Generating data for university depth"
+		
+		${DLUBM_BINARY} \
+			--format ${DLUBM_FORMAT} \
+			--index ${DLUBM_HOST_UNIVERSITY_OFFSET} \
+			--log "${DLUBM_GENERATOR_LOG_FILE}" \
+			--output "${DLUBM_OUTPUT_DIRECTORY}" \
+			--onto "${DLUBM_ONTOLOGY}" \
+			--threads ${DLUBM_THREADS} \
+			--seed ${DLUBM_SEED} \
+			--univ ${DLUBM_HOST_UNIVERSITY_AMOUNT} \
+			--universitiesGlobal ${DLUBM_UNIVERSITY_AMOUNT} \
+			--universityTemplate "${DLUBM_UNIVERSITY_TEMPLATE}" \
+			--universityLimit "${DLUBM_UNIVERSITY_LIMIT}" \
+			--departmentTemplate "${DLUBM_DEPARTMENT_TEMPLATE}" \
+			--departmentLimit "${DLUBM_DEPARTMENT_LIMIT}" \
+			--consolidate "Partial" \
+			--depth "UNIVERSITY"
+		
+	else
+		
+		echo "Generating data for department depth"
+		
+		${DLUBM_BINARY} \
+			--format ${DLUBM_FORMAT} \
+			--index ${DLUBM_HOST_UNIVERSITY_OFFSET} \
+			--log "${DLUBM_GENERATOR_LOG_FILE}" \
+			--output "${DLUBM_OUTPUT_DIRECTORY}" \
+			--onto "${DLUBM_ONTOLOGY}" \
+			--threads ${DLUBM_THREADS} \
+			--seed ${DLUBM_SEED} \
+			--univ ${DLUBM_HOST_UNIVERSITY_AMOUNT} \
+			--universitiesGlobal ${DLUBM_UNIVERSITY_AMOUNT} \
+			--universityTemplate "${DLUBM_UNIVERSITY_TEMPLATE}" \
+			--universityLimit "${DLUBM_UNIVERSITY_LIMIT}" \
+			--departmentTemplate "${DLUBM_DEPARTMENT_TEMPLATE}" \
+			--departmentLimit "${DLUBM_DEPARTMENT_LIMIT}" \
+			--consolidate "None" \
+			--depth "DEPARTMENT"
+		
+	fi
+	
+fi
+
+
+
+
+#
+# Rename files
+#
+
+cd "${DLUBM_OUTPUT_DIRECTORY}"
+
+
+for file_name in Universit*
+do
+	
+	# Reset variables
+	university_index=""
+	department_index=""
+	extension=""
+	
+	# Match global files
+	extension=$(expr match "${file_name}" 'Universities\.\([a-z]*\)')
+	
+	# Rename global file if a file was matched
+	if [ -n "${extension}" ]
+	then
+		echo "Renaming > ${file_name} > g.${extension}"
+		mv "${file_name}" "g.${extension}"
+	fi
+	
+	
+	# Reset variables
+	university_index=""
+	department_index=""
+	extension=""
+	
+	# Match university files
+	university_index=$(expr match "${file_name}" 'University\([0-9]*\)\.[a-z]*')
+	extension=$(expr match "${file_name}" 'University[0-9]*\.\([a-z]*\)')
+	
+	# Rename university file if a file was matched
+	if [ -n "${extension}" ]
+	then
+#		if [ ${DLUBM_HOST_UNIVERSITY_AMOUNT} == 1 ]
+		if [ ${DLUBM_UNIVERSITY_LIMIT} == 1 ]
+		then
+			echo "Renaming > ${file_name} > u.${extension}"
+			mv "${file_name}" "u.${extension}"
+		else
+			echo "Renaming > ${file_name} > u${university_index}.${extension}"
+			mv "${file_name}" "u${university_index}.${extension}"
+		fi
+	fi
+	
+	
+	# Reset variables
+	university_index=""
+	department_index=""
+	extension=""
+	
+	# Match department files
+	university_index=$(expr match "${file_name}" 'University\([0-9]*\)_[0-9]*\.[a-z]*')
+	department_index=$(expr match "${file_name}" 'University[0-9]*_\([0-9]*\)\.[a-z]*')
+	extension=$(expr match "${file_name}" 'University[0-9]*_[0-9]*\.\([a-z]*\)')
+	
+	# Rename department file if a file was matched
+	if [ -n "${extension}" ]
+	then
+		if [ ${DLUBM_UNIVERSITY_LIMIT} == 1 ]
+		then
+			if [ ${DLUBM_DEPARTMENT_LIMIT} == 1 ]
+			then
+				if [ ${department_index} == ${DLUBM_HOST_DEPARTMENT_OFFSET} ]
+				then
+					echo "Renaming > ${file_name} > d.${extension}"
+					mv "${file_name}" "d.${extension}"
+				else
+					echo "Removing > ${file_name}"
+					rm "${file_name}"
+				fi
+			else
+				echo "Renaming > ${file_name} > d${department_index}.${extension}"
+				mv "${file_name}" "d${department_index}.${extension}"
+			fi
+		else
+			echo "Renaming > ${file_name} > u${university_index}d${department_index}.${extension}"
+			mv "${file_name}" "u${university_index}d${department_index}.${extension}"
+		fi
+	fi
+	
+done
+
+
+
+
+#
+# Log the configuration
+#
+echo "" >> "${DLUBM_LOG_FILE}"
+echo "DLUBM_BINARY=${DLUBM_BINARY}" >> "${DLUBM_LOG_FILE}"
+echo "DLUBM_OUTPUT_DIRECTORY=${DLUBM_OUTPUT_DIRECTORY}" >> "${DLUBM_LOG_FILE}"
+echo "DLUBM_THREADS=${DLUBM_THREADS}" >> "${DLUBM_LOG_FILE}"
+echo "DLUBM_ONTOLOGY=${DLUBM_ONTOLOGY}" >> "${DLUBM_LOG_FILE}"
+echo "DLUBM_FORMAT=${DLUBM_FORMAT}" >> "${DLUBM_LOG_FILE}"
+echo "" >> "${DLUBM_LOG_FILE}"
+echo "DLUBM_SEED=${DLUBM_SEED}" >> "${DLUBM_LOG_FILE}"
+echo "DLUBM_GRANULARITY=${DLUBM_GRANULARITY}" >> "${DLUBM_LOG_FILE}"
+echo "DLUBM_UNIVERSITY_AMOUNT=${DLUBM_UNIVERSITY_AMOUNT}" >> "${DLUBM_LOG_FILE}"
+echo "DLUBM_UNIVERSITY_OFFSET=${DLUBM_UNIVERSITY_OFFSET}" >> "${DLUBM_LOG_FILE}"
+echo "DLUBM_UNIVERSITY_LIMIT=${DLUBM_UNIVERSITY_LIMIT}" >> "${DLUBM_LOG_FILE}"
+echo "DLUBM_UNIVERSITY_TEMPLATE=${DLUBM_UNIVERSITY_TEMPLATE}" >> "${DLUBM_LOG_FILE}"
+echo "DLUBM_DEPARTMENT_LIMIT=${DLUBM_DEPARTMENT_LIMIT}" >> "${DLUBM_LOG_FILE}"
+echo "DLUBM_DEPARTMENT_TEMPLATE=${DLUBM_DEPARTMENT_TEMPLATE}" >> "${DLUBM_LOG_FILE}"
+echo "DLUBM_HOST_DEPTH=${DLUBM_HOST_DEPTH}" >> "${DLUBM_LOG_FILE}"
+echo "DLUBM_HOST_UNIVERSITY_AMOUNT=${DLUBM_HOST_UNIVERSITY_AMOUNT}" >> "${DLUBM_LOG_FILE}"
+echo "DLUBM_HOST_UNIVERSITY_OFFSET=${DLUBM_HOST_UNIVERSITY_OFFSET}" >> "${DLUBM_LOG_FILE}"
+echo "DLUBM_HOST_DEPARTMENT_AMOUNT=${DLUBM_HOST_DEPARTMENT_AMOUNT}" >> "${DLUBM_LOG_FILE}"
+echo "DLUBM_HOST_DEPARTMENT_OFFSET=${DLUBM_HOST_DEPARTMENT_OFFSET}" >> "${DLUBM_LOG_FILE}"
+
+      
+echo "DLUBM_BINARY > ${DLUBM_BINARY}"
+echo "DLUBM_OUTPUT_DIRECTORY > ${DLUBM_OUTPUT_DIRECTORY}"
+echo "DLUBM_THREADS > ${DLUBM_THREADS}"
+echo "DLUBM_ONTOLOGY > ${DLUBM_ONTOLOGY}"
+echo "DLUBM_FORMAT > ${DLUBM_FORMAT}"
+echo
+echo "DLUBM_SEED=${DLUBM_SEED}"
+echo "DLUBM_GRANULARITY=${DLUBM_GRANULARITY}"
+echo "DLUBM_UNIVERSITY_AMOUNT=${DLUBM_UNIVERSITY_AMOUNT}"
+echo "DLUBM_UNIVERSITY_OFFSET=${DLUBM_UNIVERSITY_OFFSET}"
+echo "DLUBM_UNIVERSITY_LIMIT=${DLUBM_UNIVERSITY_LIMIT}"
+echo "DLUBM_UNIVERSITY_TEMPLATE=${DLUBM_UNIVERSITY_TEMPLATE}"
+echo "DLUBM_DEPARTMENT_LIMIT=${DLUBM_DEPARTMENT_LIMIT}"
+echo "DLUBM_DEPARTMENT_TEMPLATE=${DLUBM_DEPARTMENT_TEMPLATE}"
+echo "DLUBM_HOST_DEPTH=${DLUBM_HOST_DEPTH}"
+echo "DLUBM_HOST_UNIVERSITY_AMOUNT=${DLUBM_HOST_UNIVERSITY_AMOUNT}"
+echo "DLUBM_HOST_UNIVERSITY_OFFSET=${DLUBM_HOST_UNIVERSITY_OFFSET}"
+echo "DLUBM_HOST_DEPARTMENT_AMOUNT=${DLUBM_HOST_DEPARTMENT_AMOUNT}"
+echo "DLUBM_HOST_DEPARTMENT_OFFSET=${DLUBM_HOST_DEPARTMENT_OFFSET}"
