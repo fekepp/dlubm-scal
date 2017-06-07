@@ -1,2 +1,2 @@
 #!/bin/sh
-exec logutil-service /var/log/scal
+exec logutil-service /var/lib/dlubm/scal
