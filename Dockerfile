@@ -180,4 +180,6 @@ RUN	cd /root/ && \
 	echo "SCAL_URL_SUFFIX=${SCAL_URL_SUFFIX}" && \
 	echo "SCAL_URL=${SCAL_URL}"
 
+HEALTHCHECK CMD curl --silent --fail http://localhost/ > /dev/null || exit 1
+
 ENTRYPOINT [ "/init" ]
