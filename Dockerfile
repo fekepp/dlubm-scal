@@ -144,6 +144,7 @@ RUN	cd /root/ && \
 	\
 	\
 	mv build/install/scal /usr/share/ && \
+	mkdir -p /var/lib/dlubm/scal && \
 	chmod o+w /var/lib/dlubm/scal && \
 	\
 	\
